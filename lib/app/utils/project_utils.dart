@@ -15,28 +15,28 @@ class ProjectUtils {
 
 List<ProjectUtils> projectUtils = [
   ProjectUtils(
-    banners: 'assets/imgs/02.png',
+    banners: 'assets/imgs/Project-1.png',
     icons: 'assets/imgs/flutter.png',
-    titles: 'Awesome Social Media App',
+    titles: 'AI ChatBot App',
     description:
-        'This is a just Fully functional Social media App by using flutter, source code is also available, check below.',
-    links: 'https://github.com/sudeshnb/poetically-.git',
+        'A fully functional AI ChatBot app built with Flutter and Gemini API integration. It allows users to interact with an AI assistant for real-time responses. The source code is available below.',
+    links: 'https://github.com/Sahil-sardhara/Ai_ChatBot',
   ),
   ProjectUtils(
-    banners: 'assets/imgs/1.png',
+    banners: 'assets/imgs/Project-2.png',
     icons: 'assets/imgs/flutter.png',
-    titles: 'Awesome CRM UI',
+    titles: 'Uber Clone App',
     description:
-        'This is a just CRM UI Design using Figma, file is also available, check below.',
-    links: 'https://github.com/sudeshnb/',
+        'This is an Uber Clone app built using Flutter, featuring ride booking UI, maps integration, and real-time functionality. Source code is available below.',
+    links: 'https://github.com/Sahil-sardhara/uber_clone',
   ),
   ProjectUtils(
-    banners: 'assets/imgs/03.png',
+    banners: 'assets/imgs/Project-3.png',
     icons: 'assets/imgs/flutter.png',
-    titles: 'Exercise App',
+    titles: 'Uber Driver App',
     description:
-        'This is a just Fully function Exercise App by using flutter, source code is also available, check below.',
-    links: 'https://github.com/sudeshnb/elderly_exercise_app.git',
+        'This is an Uber Driver app built using Flutter, allowing drivers to accept rides, view routes, and manage trips. Source code is available below.',
+    links: 'https://github.com/Sahil-sardhara/uber_driver',
   ),
   ProjectUtils(
     banners: 'assets/imgs/04.png',
