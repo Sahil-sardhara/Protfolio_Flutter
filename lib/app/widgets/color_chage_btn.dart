@@ -27,7 +27,6 @@ class MobileCCButton extends StatefulWidget {
   const MobileCCButton({Key? key, required this.text, required this.onTap})
       : super(key: key);
   @override
-
   // ignore: library_private_types_in_public_api
   _MobileCCButtonState createState() => _MobileCCButtonState();
 }
@@ -38,7 +37,6 @@ class _MobileCCButtonState extends State<MobileCCButton> {
 
   @override
   Widget build(BuildContext context) {
-    // theme
     var theme = Theme.of(context);
     final themeState = context.watch<ThemeCubit>().state;
 
@@ -65,7 +63,7 @@ class _MobileCCButtonState extends State<MobileCCButton> {
         InkWell(
           onHover: (value) {
             setState(() {
-              isHover = !isHover;
+              isHover = value;
               _animatedWidth = value ? 125 : 0.0;
             });
           },
@@ -80,9 +78,7 @@ class _MobileCCButtonState extends State<MobileCCButton> {
               child: Text(
                 widget.text.toUpperCase(),
                 style: TextStyle(
-                  color: isHover && !themeState.isDarkThemeOn
-                      ? Colors.white
-                      : theme.textColor,
+                  color: isHover ? Colors.white : theme.textColor,
                   fontSize: 13,
                 ),
               ),
@@ -103,7 +99,6 @@ class TabCCButton extends StatefulWidget {
     required this.onTap,
   }) : super(key: key);
   @override
-
   // ignore: library_private_types_in_public_api
   _TabCCButtonState createState() => _TabCCButtonState();
 }
@@ -114,7 +109,6 @@ class _TabCCButtonState extends State<TabCCButton> {
 
   @override
   Widget build(BuildContext context) {
-    // theme
     var theme = Theme.of(context);
     final themeState = context.watch<ThemeCubit>().state;
 
@@ -139,31 +133,30 @@ class _TabCCButtonState extends State<TabCCButton> {
           ),
         ),
         InkWell(
-            onHover: (value) {
-              setState(() {
-                isHover = !isHover;
-                _animatedWidth = value ? 200 : 0.0;
-              });
-            },
-            onTap: () {
-              setState(() => _animatedWidth = 200);
-              widget.onTap();
-            },
-            child: SizedBox(
-              height: 50,
-              width: 200,
-              child: Center(
-                child: Text(
-                  widget.text.toUpperCase(),
-                  style: TextStyle(
-                    color: isHover && !themeState.isDarkThemeOn
-                        ? Colors.white
-                        : theme.textColor,
-                    fontSize: 16,
-                  ),
+          onHover: (value) {
+            setState(() {
+              isHover = value;
+              _animatedWidth = value ? 200 : 0.0;
+            });
+          },
+          onTap: () {
+            setState(() => _animatedWidth = 200);
+            widget.onTap();
+          },
+          child: SizedBox(
+            height: 50,
+            width: 200,
+            child: Center(
+              child: Text(
+                widget.text.toUpperCase(),
+                style: TextStyle(
+                  color: isHover ? Colors.white : theme.textColor,
+                  fontSize: 16,
                 ),
               ),
-            )),
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -178,7 +171,6 @@ class DesktopCCButton extends StatefulWidget {
     required this.onTap,
   }) : super(key: key);
   @override
-
   // ignore: library_private_types_in_public_api
   _DesktopCCButtonState createState() => _DesktopCCButtonState();
 }
@@ -191,6 +183,7 @@ class _DesktopCCButtonState extends State<DesktopCCButton> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     final themeState = context.watch<ThemeCubit>().state;
+
     return Stack(
       children: [
         if (!isHover)
@@ -214,7 +207,7 @@ class _DesktopCCButtonState extends State<DesktopCCButton> {
         InkWell(
           onHover: (value) {
             setState(() {
-              isHover = !isHover;
+              isHover = value;
               _animatedWidth = value ? 250 : 0.0;
             });
           },
@@ -229,9 +222,7 @@ class _DesktopCCButtonState extends State<DesktopCCButton> {
               child: Text(
                 widget.text.toUpperCase(),
                 style: TextStyle(
-                  color: isHover && !themeState.isDarkThemeOn
-                      ? Colors.white
-                      : theme.textColor,
+                  color: isHover ? Colors.white : theme.textColor,
                   fontSize: 18,
                 ),
               ),
