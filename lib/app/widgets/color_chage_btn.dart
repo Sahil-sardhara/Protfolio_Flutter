@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mysite/core/color/colors.dart';
 import 'package:mysite/core/configs/configs.dart';
 import 'package:mysite/core/res/responsive.dart';
+import 'package:mysite/core/theme/cubit/theme_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ColorChageButton extends StatelessWidget {
   final String text;
@@ -38,6 +40,7 @@ class _MobileCCButtonState extends State<MobileCCButton> {
   Widget build(BuildContext context) {
     // theme
     var theme = Theme.of(context);
+    final themeState = context.watch<ThemeCubit>().state;
 
     return Stack(
       children: [
@@ -77,7 +80,9 @@ class _MobileCCButtonState extends State<MobileCCButton> {
               child: Text(
                 widget.text.toUpperCase(),
                 style: TextStyle(
-                  color: theme.textColor,
+                  color: isHover && !themeState.isDarkThemeOn
+                      ? Colors.white
+                      : theme.textColor,
                   fontSize: 13,
                 ),
               ),
@@ -111,6 +116,7 @@ class _TabCCButtonState extends State<TabCCButton> {
   Widget build(BuildContext context) {
     // theme
     var theme = Theme.of(context);
+    final themeState = context.watch<ThemeCubit>().state;
 
     return Stack(
       children: [
@@ -150,7 +156,9 @@ class _TabCCButtonState extends State<TabCCButton> {
                 child: Text(
                   widget.text.toUpperCase(),
                   style: TextStyle(
-                    color: theme.textColor,
+                    color: isHover && !themeState.isDarkThemeOn
+                        ? Colors.white
+                        : theme.textColor,
                     fontSize: 16,
                   ),
                 ),
@@ -182,6 +190,7 @@ class _DesktopCCButtonState extends State<DesktopCCButton> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
+    final themeState = context.watch<ThemeCubit>().state;
     return Stack(
       children: [
         if (!isHover)
@@ -220,7 +229,9 @@ class _DesktopCCButtonState extends State<DesktopCCButton> {
               child: Text(
                 widget.text.toUpperCase(),
                 style: TextStyle(
-                  color: isHover ? whiteColor : theme.textColor,
+                  color: isHover && !themeState.isDarkThemeOn
+                      ? Colors.white
+                      : theme.textColor,
                   fontSize: 18,
                 ),
               ),
